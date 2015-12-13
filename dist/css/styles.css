@@ -1,0 +1,80 @@
+@import url(https://fonts.googleapis.com/css?family=Lobster);
+/*
+.skin-blue {
+    background-color: #00ca6d;
+}*/
+.main-header .container .navbar-header {
+    margin: -5px;
+    font-family: 'Lobster', cursive;
+    font-weight: 200;
+}
+.main-header .container .navbar-header .a b{
+    font-size: 25px
+}
+
+.main-header .container {
+    position: relative;
+}
+.main-header .container .collapse .navbar-form .form-group {
+    padding-left: 50px;
+    margin-top: 0;
+}
+.main-header .container .collapse .navbar-form .form-group .input-group-btn {
+    position: relative;
+}
+
+.searchboxdiv {
+    width: 700px ;
+}
+
+.content .contentBox {
+    background-color: #f6faff;
+    height: 160px;
+}
+
+.content-wrapper .container {
+    position: static;
+    width: 900px;
+}
+
+.sidebar-form  {
+    padding-left: 30px;
+    position: relative;
+}
+
+.buttonColor {
+    background-color: #00ACD6;
+}
+
+.content-header {
+    margin-top:0;
+}
+
+/*.navElements {
+    width: 700px ;
+}*/
+
+/*.main-header .container .collapse .navbar-form .form-group #navbar-email-input {
+    width: 50px ;
+}*/
+
+.register-box, .register-page {
+    padding-top: 0px;
+    margin-top: 10px;
+}
+
+
+.logofont {
+    font-size: 25px;
+    font-family: 'Lobster', cursive;
+    font-weight: 400; margin: 0px;
+}
+.register-btn,.login-btn, .search-btn {
+    background-color: #00ACD6;
+}
+
+@media (max-width: 768px) {
+    .main-header .container .collapse .navbar-form .form-group .searchbox {
+        width: 150px ;
+    }
+}
