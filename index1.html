@@ -1,86 +1,85 @@
+
 <!DOCTYPE html>
-<html ng-app="plunker">
+<html lang="en">
 <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Cinima</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
-    <!-- Font Awesome -->
+    <title>Bootply snippet - Bootstrap Carousel with multi items</title>
+    <meta name="generator" content="Bootply" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Bootstrap Carousel with multi items example snippet for Bootstrap." />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Theme style -->
     <link rel="stylesheet" href="lib/dist/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="lib/dist/css/skins/_all-skins.min.css">
-
     <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-    <!--customized css file-->
     <link rel="stylesheet" href="dist/css/styles.css">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
-    <!--angular slick plugin for carousal -->
-    <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
-<body class="hold-transition skin-blue layout-top-nav">
-<slick dots="true" infinite="false" speed="300" slides-to-show="5" touch-move="false" slides-to-scroll="1" class="slider one-time ng-isolate-scope slick-initialized slick-slider">
-    <div class="slick-list draggable" tabindex="0">
-        <div class="slick-track" style="opacity: 1; width: 1808px; transform: translate3d(-1017px, 0px, 0px);">
-            <div class="slick-slide slick-cloned" style="width: 113px;"><h3>2</h3></div>
-            <div class="slick-slide slick-cloned" style="width: 113px;"><h3>3</h3></div>
-            <div class="slick-slide slick-cloned" style="width: 113px;"><h3>4</h3></div>
-            <div class="slick-slide slick-cloned" style="width: 113px;"><h3>5</h3></div>
-            <div class="slick-slide slick-cloned" style="width: 113px;"><h3>6</h3></div>
-            <div class="slick-slide" style="width: 113px;"><h3>1</h3></div>
-            <div class="slick-slide" style="width: 113px;"><h3>2</h3></div>
-            <div class="slick-slide" style="width: 113px;"><h3>3</h3></div>
-            <div class="slick-slide" style="width: 113px;"><h3>4</h3></div>
-            <div class="slick-slide slick-active" style="width: 113px;"><h3>5</h3></div>
-            <div class="slick-slide slick-active" style="width: 113px;"><h3>6</h3></div>
-            <div class="slick-slide slick-cloned slick-active" style="width: 113px;"><h3>1</h3></div>
-            <div class="slick-slide slick-cloned slick-active" style="width: 113px;"><h3>2</h3></div>
-            <div class="slick-slide slick-cloned slick-active" style="width: 113px;"><h3>3</h3></div>
-            <div class="slick-slide slick-cloned" style="width: 113px;"><h3>4</h3></div>
-            <div class="slick-slide slick-cloned" style="width: 113px;"><h3>5</h3></div>
+
+<!-- HTML code from Bootply.com editor -->
+
+<body  class="hold-transition skin-blue layout-top-nav">
+
+<div class="container">
+    <div ng-app="sampleapp">
+        <div ng-controller="samplecontoller" ng-init="showData()">
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary" ng-disabled="curPage == 0"
+                        ng-click="curPage=curPage-1" style="float: left;background-color: white; border: none;padding-top: 30px;">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true" style="color: black"></span>
+                </button>
+            </div>
+            <div  class="col-md-8">
+                <div ng-repeat="datalist in datalists | pagination: curPage * pageSize | limitTo: pageSize"
+                    style="float: left; padding: 5px;">
+                    <img ng-src="{{datalist.image}}" style="height: 100px;width: 100px;">
+                </div>
+            </div>
+            <div  class="col-md-2">
+                <button type="button" class="btn btn-primary" ng-disabled="curPage >= datalists.length/pageSize - 1"
+                        ng-click="curPage = curPage+1" style="float: right;background-color: white; border: none;padding-top: 30px;">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="color: black"></span>
+                </button>
+            </div>
+            <!--<div ng-show="datalists.length">
+                &lt;!&ndash;<ul class="pagination-controle pagination">
+                    <li>&ndash;&gt;
+                        <button type="button" class="btn btn-primary" ng-disabled="curPage == 0"
+                                ng-click="curPage=curPage-1" style="float: left;background-color: white; border: none;">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true" style="color: black"></span>
+                        </button>
+                   &lt;!&ndash; </li>
+                    <li>&ndash;&gt;
+                        <button type="button" class="btn btn-primary" ng-disabled="curPage >= datalists.length/pageSize - 1"
+                                ng-click="curPage = curPage+1" style="float: right;background-color: white; border: none;">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="color: black"></span>
+                        </button>
+                    &lt;!&ndash;</li>
+                </ul>&ndash;&gt;
+            </div>-->
         </div>
     </div>
-    <button type="button" class="slick-prev" tabindex="-1" style="display: block;">Previous</button>
-    <button type="button" class="slick-next" tabindex="-1" style="display: block;">Next</button>
-    <ul class="slick-dots" style="display: block;">
-        <li class=""><a href="javascript:void(0)" tabindex="-1">0</a></li>
-        <li><a href="javascript:void(0)" tabindex="-1">1</a></li>
-        <li><a href="javascript:void(0)" tabindex="-1">2</a></li>
-        <li class=""><a href="javascript:void(0)" tabindex="-1">3</a></li>
-        <li class="slick-active"><a href="javascript:void(0)" tabindex="-1">4</a></li>
-        <li class=""><a href="javascript:void(0)" tabindex="-1">5</a></li></ul>
-</slick>
 
-    <!-- jQuery 2.1.4 -->
-    <script src="lib/plugins/jQuery/jQuery-2.1.4.min.js"></script>
-    <!-- Bootstrap 3.3.5 -->
-    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-    <!-- SlimScroll -->
-    <script src="lib/plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    <!-- FastClick -->
-    <script src="lib/plugins/fastclick/fastclick.js"></script>
-    <!-- AdminLTE App -->
-    <script src="lib/dist/js/app.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="lib/dist/js/demo.js"></script>
-    <script src="dist/js/example.js"></script>
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/angular/angular.min.js"></script>
-    <script src="bower_components/slick-carousel/slick/slick.min.js"></script>
-    <script src="bower_components/angular-slick/dist/slick.min.js"></script>
-    <script src="bower_components/angular-highlightjs/angular-highlightjs.js"></script>
+</div><!-- /CONTAINER -->
+
+<script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type='text/javascript' src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<!-- jQuery 2.1.4 -->
+<script src="lib/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="lib/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="lib/plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="lib/dist/js/app.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script type='text/javascript' src="dist/js/angularpaging.js"></script>
+<script src="lib/dist/js/demo.js"></script>
+<script src="dist/js/example.js"></script>
 </body>
 </html>

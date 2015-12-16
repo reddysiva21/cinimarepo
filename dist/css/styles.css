@@ -27,15 +27,29 @@
     width: 700px ;
 }
 
-.content .contentBox {
-    background-color: #f6faff;
-    height: 160px;
-}
+/*.container .contentBox {
+    background-color: #ffffff;
+    border: none;
+    height: 140px;
+}*/
+
+/*.container .contentBox2 {
+    background-color: #ffffff;
+    border: none;
+    height: 140px;
+}*/
 
 .content-wrapper .container {
     position: static;
     width: 900px;
 }
+
+section.content {
+    height: 150px;
+    padding: 0px;
+    margin: 0px;
+}
+
 
 .sidebar-form  {
     padding-left: 30px;
@@ -48,6 +62,18 @@
 
 .content-header {
     margin-top:0;
+}
+
+.div-btn-left, .div-btn-right, .div-content{
+    float: left;
+    position: relative;
+}
+.div-btn-right {
+    padding-left: 20px;
+}
+
+.div-btn-left{
+    padding-right: 20px;
 }
 
 /*.navElements {
@@ -78,3 +104,4 @@
         width: 150px ;
     }
 }
+
